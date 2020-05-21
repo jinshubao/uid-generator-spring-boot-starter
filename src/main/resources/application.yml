@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: uid-generator
+  datasource:
+    name: default-datasource
+    platform: MySQL
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://mysql.jean.com:3306/uid_generator?characterEncoding=UTF-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 2
+
+mybatis:
+  type-aliases-package: com.baidu.fsg.uid.worker.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+logging:
+  level:
+    root: info
+    com.baidu.fsg.uid: debug
+    com.alibaba.nacos: warn
+  file:
+    name: /log/${spring.application.name}/${spring.application.name}.log
