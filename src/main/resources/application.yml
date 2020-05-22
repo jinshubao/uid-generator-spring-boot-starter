@@ -5,7 +5,7 @@ spring:
   application:
     name: uid-generator
   datasource:
-    name: default-datasource
+    name: uid-generator-datasource
     platform: MySQL
     driver-class-name: com.mysql.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
@@ -27,4 +27,4 @@ logging:
     com.baidu.fsg.uid: debug
     com.alibaba.nacos: warn
   file:
-    name: /log/${spring.application.name}/${spring.application.name}.log
+    name: /data/logs/${spring.application.name}.log
